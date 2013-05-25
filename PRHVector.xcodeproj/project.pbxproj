@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3116714D175094470036A254 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3116714C175094470036A254 /* SenTestingKit.framework */; };
+		3116714F175094470036A254 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3116714E175094470036A254 /* Cocoa.framework */; };
+		31167159175094470036A254 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31167157175094470036A254 /* InfoPlist.strings */; };
+		3116715C175094470036A254 /* PRHVectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3116715B175094470036A254 /* PRHVectorTests.m */; };
+		31167164175094C30036A254 /* PRHVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 31167163175094C30036A254 /* PRHVector.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		311671381750942D0036A254 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3116714B175094470036A254 /* PRHVectorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PRHVectorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3116714C175094470036A254 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3116714E175094470036A254 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		31167151175094470036A254 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		31167152175094470036A254 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		31167153175094470036A254 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		31167156175094470036A254 /* PRHVectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PRHVectorTests-Info.plist"; sourceTree = "<group>"; };
+		31167158175094470036A254 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3116715A175094470036A254 /* PRHVectorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRHVectorTests.h; sourceTree = "<group>"; };
+		3116715B175094470036A254 /* PRHVectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRHVectorTests.m; sourceTree = "<group>"; };
+		3116715D175094470036A254 /* PRHVectorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PRHVectorTests-Prefix.pch"; sourceTree = "<group>"; };
+		31167162175094C30036A254 /* PRHVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHVector.h; sourceTree = "<group>"; };
+		31167163175094C30036A254 /* PRHVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHVector.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31167147175094470036A254 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3116714D175094470036A254 /* SenTestingKit.framework in Frameworks */,
+				3116714F175094470036A254 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3116712C1750942D0036A254 = {
+			isa = PBXGroup;
+			children = (
+				31167161175094B10036A254 /* PRHVector */,
+				31167154175094470036A254 /* PRHVectorTests */,
+				311671371750942D0036A254 /* Frameworks */,
+				311671361750942D0036A254 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		311671361750942D0036A254 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3116714B175094470036A254 /* PRHVectorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		311671371750942D0036A254 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				311671381750942D0036A254 /* Foundation.framework */,
+				3116714C175094470036A254 /* SenTestingKit.framework */,
+				3116714E175094470036A254 /* Cocoa.framework */,
+				31167150175094470036A254 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31167150175094470036A254 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31167151175094470036A254 /* AppKit.framework */,
+				31167152175094470036A254 /* CoreData.framework */,
+				31167153175094470036A254 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		31167154175094470036A254 /* PRHVectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				3116715A175094470036A254 /* PRHVectorTests.h */,
+				3116715B175094470036A254 /* PRHVectorTests.m */,
+				31167155175094470036A254 /* Supporting Files */,
+			);
+			path = PRHVectorTests;
+			sourceTree = "<group>";
+		};
+		31167155175094470036A254 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				31167156175094470036A254 /* PRHVectorTests-Info.plist */,
+				31167157175094470036A254 /* InfoPlist.strings */,
+				3116715D175094470036A254 /* PRHVectorTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31167161175094B10036A254 /* PRHVector */ = {
+			isa = PBXGroup;
+			children = (
+				31167162175094C30036A254 /* PRHVector.h */,
+				31167163175094C30036A254 /* PRHVector.m */,
+			);
+			path = PRHVector;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3116714A175094470036A254 /* PRHVectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3116715E175094470036A254 /* Build configuration list for PBXNativeTarget "PRHVectorTests" */;
+			buildPhases = (
+				31167146175094470036A254 /* Sources */,
+				31167147175094470036A254 /* Frameworks */,
+				31167148175094470036A254 /* Resources */,
+				31167149175094470036A254 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PRHVectorTests;
+			productName = PRHVectorTests;
+			productReference = 3116714B175094470036A254 /* PRHVectorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3116712D1750942D0036A254 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Peter Hosey";
+			};
+			buildConfigurationList = 311671301750942D0036A254 /* Build configuration list for PBXProject "PRHVector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3116712C1750942D0036A254;
+			productRefGroup = 311671361750942D0036A254 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3116714A175094470036A254 /* PRHVectorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31167148175094470036A254 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31167159175094470036A254 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31167149175094470036A254 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31167146175094470036A254 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3116715C175094470036A254 /* PRHVectorTests.m in Sources */,
+				31167164175094C30036A254 /* PRHVector.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		31167157175094470036A254 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31167158175094470036A254 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		311671411750942D0036A254 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		311671421750942D0036A254 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3116715F175094470036A254 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PRHVectorTests/PRHVectorTests-Prefix.pch";
+				INFOPLIST_FILE = "PRHVectorTests/PRHVectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		31167160175094470036A254 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PRHVectorTests/PRHVectorTests-Prefix.pch";
+				INFOPLIST_FILE = "PRHVectorTests/PRHVectorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		311671301750942D0036A254 /* Build configuration list for PBXProject "PRHVector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				311671411750942D0036A254 /* Debug */,
+				311671421750942D0036A254 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3116715E175094470036A254 /* Build configuration list for PBXNativeTarget "PRHVectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3116715F175094470036A254 /* Debug */,
+				31167160175094470036A254 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3116712D1750942D0036A254 /* Project object */;
+}
