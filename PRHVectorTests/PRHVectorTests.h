@@ -10,4 +10,22 @@
 
 @interface PRHVectorTests : SenTestCase
 
+- (void) testMagnitudeOfStraightRightUnitVector;
+- (void) testMagnitudeOfStraightLeftUnitVector;
+- (void) testMagnitudeOfStraightUpUnitVector;
+- (void) testMagnitudeOfStraightDownUnitVector;
+- (void) testMagnitudeOf45DegreeUnitVector;
+
+- (void) testAngleOfStraightRightUnitVector;
+- (void) testAngleOfStraightLeftUnitVector;
+- (void) testAngleOfStraightUpUnitVector;
+- (void) testAngleOfStraightDownUnitVector;
+- (void) testAngleOf45DegreeUnitVector;
+
+- (void) testCoordinatesOfStraightRightUnitVector;
+- (void) testCoordinatesOfStraightLeftUnitVector;
+- (void) testCoordinatesOfStraightUpUnitVector;
+- (void) testCoordinatesOfStraightDownUnitVector;
+- (void) testCoordinatesOf45DegreeUnitVector;
+
 @end
