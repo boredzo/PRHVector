@@ -8,6 +8,8 @@
 
 #import "PRHVector.h"
 
+#include <tgmath.h>
+
 @interface PRHVector ()
 
 - (CGFloat) convertToDegreesFromRadians:(CGFloat)radians;
