@@ -62,7 +62,7 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 	return [NSString stringWithFormat:@"<%@ %p (%+g, %+g) = (angle=%g%C, mag=%g)>",
 		NSStringFromClass(self.class), (PRHVectorConstantSelfPointer != NULL) ? (void *)PRHVectorConstantSelfPointer : (__bridge void *)self,
 		self.x, self.y,
-		self.angleInDegrees, DEGREE_SIGN,
+		self.angleInDegrees, (unichar)DEGREE_SIGN,
 		self.magnitude
 	];
 }
