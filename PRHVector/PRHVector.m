@@ -118,13 +118,11 @@
 }
 
 - (CGFloat) slope {
-	CGFloat angleInRadians = self.angleInRadians;
-
-	CGFloat fractionOfHalfPi = fmod(angleInRadians, M_PI_2);
-	CGFloat fractionOfPi = fmod(angleInRadians, M_PI);
-	CGFloat slope = fmod(fractionOfHalfPi, 2) == 0.0 && fmod(fractionOfPi, 2) != 0.0
-		? INFINITY
-		: tan(angleInRadians);
+	CGFloat slope = fabs(self.x) > 0.0
+		? tan(self.angleInRadians)
+		: fabs(self.y) > 0.0
+			? copysign(INFINITY, self.y)
+			: 0.0;
 
 	return slope;
 }
@@ -149,7 +147,7 @@
 - (PRHVectorAxis) axis {
 	return __builtin_expect(self.magnitude == 0.0, 0)
 		? PRHVectorAxisPerfectCenter
-		: self.slope > 1.0
+		: fabs(self.slope) > 1.0
 			? PRHVectorAxisY
 			: PRHVectorAxisX;
 }
