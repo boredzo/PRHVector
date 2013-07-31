@@ -55,6 +55,50 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 	return [self initWithAngleInRadians:theta magnitude:mag];
 }
 
+#ifdef MAC_OS_X_VERSION_MIN_REQUIRED
++ (instancetype) vectorWithEvent:(NSEvent *)event {
+	return [self eventWillBeInterpretedAsRelative:event]
+		? [self vectorWithX:event.deltaX y:event.deltaY]
+		: [self vectorWithX:event.locationInWindow.x y:event.locationInWindow.y];
+}
+
++ (bool) eventWillBeInterpretedAsRelative:(NSEvent *)event {
+	switch (event.type) {
+		case NSMouseMoved:
+		case NSLeftMouseDragged:
+		case NSRightMouseDragged:
+		case NSOtherMouseDragged:
+		case NSScrollWheel:
+			return true;
+
+		case NSLeftMouseDown:
+		case NSLeftMouseUp:
+		case NSRightMouseDown:
+		case NSRightMouseUp:
+		case NSOtherMouseDown:
+		case NSOtherMouseUp:
+		case NSMouseEntered:
+		case NSMouseExited:
+		case NSCursorUpdate:
+		case NSTabletPoint:
+		case NSTabletProximity:
+		case NSEventTypeGesture:
+		case NSEventTypeMagnify:
+		case NSEventTypeSwipe:
+		case NSEventTypeRotate:
+		case NSEventTypeBeginGesture:
+		case NSEventTypeEndGesture:
+		case NSEventTypeSmartMagnify:
+		case NSEventTypeQuickLook:
+			//Fall through to default behavior.
+		default:
+			//Not a mouse-related event.
+			break;
+	}
+	return false;
+}
+#endif
+
 - (NSString *) description {
 	enum {
 		DEGREE_SIGN = 0x00B0,

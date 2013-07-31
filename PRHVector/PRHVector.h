@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
+#   import <AppKit/AppKit.h>
+#endif
 
 typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
 	PRHVectorAxisPerfectCenter, //magnitude = 0
@@ -24,6 +27,12 @@ typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
 
 + (instancetype) vectorWithAngleInDegrees:(CGFloat)degrees magnitude:(CGFloat)mag;
 - (instancetype) initWithAngleInDegrees:(CGFloat)degrees magnitude:(CGFloat)mag;
+
+#ifdef MAC_OS_X_VERSION_MIN_REQUIRED
+//Returns a vector of the locationInWindow of absolute-location mouse events (such as mouseDown and mouseUp), or the deltaX and deltaY of relative mouse events (such as scrollWheel). All gestures are treated as absolute.
++ (instancetype) vectorWithEvent:(NSEvent *)event;
++ (bool) eventWillBeInterpretedAsRelative:(NSEvent *)event;
+#endif
 
 @property CGFloat x, y;
 
