@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "PRHVector.h"
 
 @interface PRHVectorTests : SenTestCase
 
@@ -27,5 +28,34 @@
 - (void) testCoordinatesOfStraightUpUnitVector;
 - (void) testCoordinatesOfStraightDownUnitVector;
 - (void) testCoordinatesOf45DegreeUnitVector;
+
+- (void) testSlopeOfZeroVector;
+- (void) testSlopeOfStraightRightUnitVector;
+- (void) testSlopeOfStraightLeftUnitVector;
+//Slope of straight up/down should be INF
+- (void) testSlopeOfStraightUpUnitVector;
+- (void) testSlopeOfStraightDownUnitVector;
+//Slope of 45-degree (or multiple thereof) should be ±1.0
+//TODO: Check correct slope for negative-x and/or negative-y vectors
+- (void) testSlopeOf45DegreeUnitVector;
+- (void) testSlopeOf135DegreeUnitVector;
+- (void) testSlopeOf225DegreeUnitVector;
+- (void) testSlopeOf315DegreeUnitVector;
+
+- (void) testAxisDirectionsOfZeroVector;
+- (void) testAxisDirectionsOfStraightRightUnitVector;
+- (void) testAxisDirectionsOfStraightLeftUnitVector;
+- (void) testAxisDirectionsOfStraightUpUnitVector;
+- (void) testAxisDirectionsOfStraightDownUnitVector;
+- (void) testAxisDirectionsOf45DegreeUnitVector;
+- (void) testAxisDirectionsOf135DegreeUnitVector;
+- (void) testAxisDirectionsOf225DegreeUnitVector;
+- (void) testAxisDirectionsOf315DegreeUnitVector;
+
+- (void) testAxisOfZeroVector;
+- (void) testAxisOfStraightRightUnitVector;
+- (void) testAxisOfStraightLeftUnitVector;
+- (void) testAxisOfStraightUpUnitVector;
+- (void) testAxisOfStraightDownUnitVector;
 
 @end

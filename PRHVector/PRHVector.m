@@ -117,4 +117,41 @@
 	return (radians / (M_PI * 2.0)) * 360.0;
 }
 
+- (CGFloat) slope {
+	CGFloat angleInRadians = self.angleInRadians;
+
+	CGFloat fractionOfHalfPi = fmod(angleInRadians, M_PI_2);
+	CGFloat fractionOfPi = fmod(angleInRadians, M_PI);
+	CGFloat slope = fmod(fractionOfHalfPi, 2) == 0.0 && fmod(fractionOfPi, 2) != 0.0
+		? INFINITY
+		: tan(angleInRadians);
+
+	return slope;
+}
+
+- (void) getDirectionOnXAxis:(out CGFloat *)outXAxis yAxis:(out CGFloat *)outYAxis {
+	if (outXAxis != NULL) {
+		*outXAxis = self.x == 0.0
+			? 0.0
+			: self.x < -0.0
+				? -1.0
+				: +1.0;
+	}
+	if (outYAxis != NULL) {
+		*outYAxis = self.y == 0.0
+			? 0.0
+			: self.y < -0.0
+				? -1.0
+				: +1.0;
+	}
+}
+
+- (PRHVectorAxis) axis {
+	return __builtin_expect(self.magnitude == 0.0, 0)
+		? PRHVectorAxisPerfectCenter
+		: self.slope > 1.0
+			? PRHVectorAxisY
+			: PRHVectorAxisX;
+}
+
 @end

@@ -113,4 +113,128 @@
 	STAssertEqualsWithAccuracy(vector.y, sin(M_PI / 4.0), 0.0001, @"Y of unit vector (45 degree) should be sin(pi/4)");
 }
 
+#pragma mark -
+
+- (void) testSlopeOfZeroVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:0.0];
+	STAssertEqualsWithAccuracy(vector.slope, 0.0, 0.0001, @"Slope of zero vector should be zero");
+}
+- (void) testSlopeOfStraightRightUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:+1.0 y:0.0];
+	STAssertEqualsWithAccuracy(vector.slope, 0.0, 0.0001, @"Slope of unit vector (straight right) should be zero, not %f", vector.slope);
+}
+- (void) testSlopeOfStraightLeftUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:-1.0 y:0.0];
+	STAssertEqualsWithAccuracy(vector.slope, 0.0, 0.0001, @"Slope of unit vector (straight left) should be zero, not %f", vector.slope);
+}
+- (void) testSlopeOfStraightUpUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:+1.0];
+	STAssertTrue(isinf(vector.slope), @"Slope of unit vector (straight up) should be infinite, not %f", vector.slope);
+}
+- (void) testSlopeOfStraightDownUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:-1.0];
+	STAssertTrue(isinf(vector.slope), @"Slope of unit vector (straight down) should be infinite, not %f", vector.slope);
+}
+- (void) testSlopeOf45DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:45.0 magnitude:1.0];
+	STAssertEqualsWithAccuracy(vector.slope, +1.0, 0.0001, @"Slope of unit vector (45 degrees) should be positive one, not %f", vector.slope);
+}
+- (void) testSlopeOf135DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:135.0 magnitude:1.0];
+	STAssertEqualsWithAccuracy(vector.slope, -1.0, 0.0001, @"Slope of unit vector (135 degrees) should be negative one, not %f", vector.slope);
+}
+- (void) testSlopeOf225DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:225.0 magnitude:1.0];
+	STAssertEqualsWithAccuracy(vector.slope, +1.0, 0.0001, @"Slope of unit vector (225 degrees) should be positive one, not %f", vector.slope);
+}
+- (void) testSlopeOf315DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:315.0 magnitude:1.0];
+	STAssertEqualsWithAccuracy(vector.slope, -1.0, 0.0001, @"Slope of unit vector (315 degrees) should be negative one, not %f", vector.slope);
+}
+
+- (void) testAxisDirectionsOfZeroVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:0.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, 0.0, 0.0001, @"X direction of zero vector should be zero");
+	STAssertEqualsWithAccuracy(y, 0.0, 0.0001, @"Y direction of zero vector should be zero");
+}
+- (void) testAxisDirectionsOfStraightRightUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:+1.0 y:0.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, +1.0, 0.0001, @"X direction of unit vector (straight right) should be positive one");
+	STAssertEqualsWithAccuracy(y, 0.0, 0.0001, @"Y direction of unit vector (straight right) should be zero");
+}
+- (void) testAxisDirectionsOfStraightLeftUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:-1.0 y:0.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, -1.0, 0.0001, @"X direction of unit vector (straight left) should be negative one");
+	STAssertEqualsWithAccuracy(y, 0.0, 0.0001, @"Y direction of unit vector (straight left) should be zero");
+}
+- (void) testAxisDirectionsOfStraightUpUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:+1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, 0.0, 0.0001, @"X direction of unit vector (straight up) should be zero");
+	STAssertEqualsWithAccuracy(y, +1.0, 0.0001, @"Y direction of unit vector (straight up) should be positive one");
+}
+- (void) testAxisDirectionsOfStraightDownUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:-1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, 0.0, 0.0001, @"X direction of unit vector (straight down) should be zero");
+	STAssertEqualsWithAccuracy(y, -1.0, 0.0001, @"Y direction of unit vector (straight down) should be negative one");
+}
+- (void) testAxisDirectionsOf45DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:45.0 magnitude:1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, +1.0, 0.0001, @"X direction of unit vector (45 degrees) should be positive one");
+	STAssertEqualsWithAccuracy(y, +1.0, 0.0001, @"Y direction of unit vector (45 degrees) should be positive one");
+}
+- (void) testAxisDirectionsOf135DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:135.0 magnitude:1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, -1.0, 0.0001, @"X direction of unit vector (135 degrees) should be negative one");
+	STAssertEqualsWithAccuracy(y, +1.0, 0.0001, @"Y direction of unit vector (135 degrees) should be positive one");
+}
+- (void) testAxisDirectionsOf225DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:225.0 magnitude:1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, -1.0, 0.0001, @"X direction of unit vector (225 degrees) should be negative one");
+	STAssertEqualsWithAccuracy(y, -1.0, 0.0001, @"Y direction of unit vector (225 degrees) should be negative one");
+}
+- (void) testAxisDirectionsOf315DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:315.0 magnitude:1.0];
+	CGFloat x, y;
+	[vector getDirectionOnXAxis:&x yAxis:&y];
+	STAssertEqualsWithAccuracy(x, +1.0, 0.0001, @"X direction of unit vector (315 degrees) should be negative one");
+	STAssertEqualsWithAccuracy(y, -1.0, 0.0001, @"Y direction of unit vector (315 degrees) should be negative one");
+}
+
+- (void) testAxisOfZeroVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:0.0];
+	STAssertEquals(vector.axis, PRHVectorAxisPerfectCenter, @"Axis of zero vector should be perfect center, not %lu", vector.axis);
+}
+- (void) testAxisOfStraightRightUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:+1.0 y:0.0];
+	STAssertEquals(vector.axis, PRHVectorAxisX, @"Axis of unit vector (straight right) should be X axis, not %lu", vector.axis);
+}
+- (void) testAxisOfStraightLeftUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:-1.0 y:0.0];
+	STAssertEquals(vector.axis, PRHVectorAxisX, @"Axis of unit vector (straight left) should be X axis, not %lu", vector.axis);
+}
+- (void) testAxisOfStraightUpUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:+1.0];
+	STAssertEquals(vector.axis, PRHVectorAxisY, @"Axis of unit vector (straight up) should be Y axis, not %lu", vector.axis);
+}
+- (void) testAxisOfStraightDownUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:-1.0];
+	STAssertEquals(vector.axis, PRHVectorAxisY, @"Axis of unit vector (straight down) should be Y axis, not %lu", vector.axis);
+}
+
 @end

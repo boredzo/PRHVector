@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
+	PRHVectorAxisPerfectCenter, //magnitude = 0
+	PRHVectorAxisX,
+	PRHVectorAxisY,
+};
+
 @interface PRHVector : NSObject
 
 + (instancetype) vectorWithX:(CGFloat)x y:(CGFloat)y;
@@ -27,5 +33,14 @@
 //Unlike atan2(v.y, v.x), v.angleInRadians will try to always return a positive number.
 //So, for example, a 270-degree vector will return an angle of pi*1.5, not -pi/2.
 @property(nonatomic) CGFloat angleInDegrees, angleInRadians, magnitude;
+
+@property(nonatomic, readonly) CGFloat slope;
+
+//A vector with zero magnitude will return 0, 0. Any other vector will return a pair of 1s, of which either, neither, or both may be negative.
+- (void) getDirectionOnXAxis:(out CGFloat *)outXAxis yAxis:(out CGFloat *)outYAxis;
+
+//Returns whether a vector is horizontal or vertical (or goes nowhere).
+//Use this for, e.g., examining drags.
+- (PRHVectorAxis) axis;
 
 @end

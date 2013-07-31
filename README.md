@@ -6,7 +6,7 @@ This is reusable source code for a class of object representing a vector, in the
 ### Features
 
 - Conversion between Cartesian and polar coordinates
-- Conversion to slope (TBD)
+- Conversion to slope
 - Quadrant testing (is this vector in the rightward, upward, leftward, or downward quadrant?) (TBD)
 - Multiplication with other vectors (TBD)
 - Multiplication with CGAffineTransforms and NSAffineTransforms (TBD)
