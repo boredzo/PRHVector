@@ -20,6 +20,9 @@
 
 @end
 
+//Defined in test class. Causes -description to use this pointer instead of the actual self.
+const void *PRHVectorConstantSelfPointer __attribute__((weak));
+
 @implementation PRHVector
 
 + (instancetype) vectorWithX:(CGFloat)x y:(CGFloat)y {
@@ -50,6 +53,19 @@
 - (instancetype) initWithAngleInDegrees:(CGFloat)degrees magnitude:(CGFloat)mag {
 	CGFloat theta = [self convertToRadiansFromDegrees:degrees];
 	return [self initWithAngleInRadians:theta magnitude:mag];
+}
+
+- (NSString *) description {
+	enum {
+		THETA = 0x03B8,
+		DEGREE_SIGN = 0x00B0,
+	};
+	return [NSString stringWithFormat:@"<%@ %p (%+g, %+g) = (angle=%g%C, mag=%g)>",
+		NSStringFromClass(self.class), (PRHVectorConstantSelfPointer != NULL) ? (void *)PRHVectorConstantSelfPointer : (__bridge void *)self,
+		self.x, self.y,
+		self.angleInDegrees, DEGREE_SIGN,
+		self.magnitude
+	];
 }
 
 - (CGPoint) point {

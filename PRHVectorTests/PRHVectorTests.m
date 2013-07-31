@@ -10,6 +10,8 @@
 
 #import "PRHVector.h"
 
+const void *PRHVectorConstantSelfPointer = (const void *)0x12345abcde;
+
 @implementation PRHVectorTests
 
 - (void) setUp {
@@ -235,6 +237,44 @@
 - (void) testAxisOfStraightDownUnitVector {
 	PRHVector *vector = [PRHVector vectorWithX:0.0 y:-1.0];
 	STAssertEquals(vector.axis, PRHVectorAxisY, @"Axis of unit vector (straight down) should be Y axis, not %lu", vector.axis);
+}
+
+- (void) testDescriptionOfZeroVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:0.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0, +0) = (angle=0°, mag=0)>", @"Got a weird description for a zero vector");
+}
+- (void) testDescriptionOfStraightRightUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:+1.0 y:0.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+1, +0) = (angle=0°, mag=1)>", @"Got a weird description for a straight-right unit vector");
+}
+- (void) testDescriptionOfStraightLeftUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:-1.0 y:0.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (-1, +0) = (angle=180°, mag=1)>", @"Got a weird description for a straight-left unit vector");
+}
+- (void) testDescriptionOfStraightUpUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:+1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0, +1) = (angle=90°, mag=1)>", @"Got a weird description for a straight-up unit vector");
+}
+- (void) testDescriptionOfStraightDownUnitVector {
+	PRHVector *vector = [PRHVector vectorWithX:0.0 y:-1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0, -1) = (angle=270°, mag=1)>", @"Got a weird description for a straight-down unit vector");
+}
+
+- (void) testDescriptionOf45DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:45.0 magnitude:1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0.707107, +0.707107) = (angle=45°, mag=1)>", @"Got a weird description for a 45-degree unit vector");
+}
+- (void) testDescriptionOf135DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:135.0 magnitude:1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (-0.707107, +0.707107) = (angle=135°, mag=1)>", @"Got a weird description for a 135-degree unit vector");
+}
+- (void) testDescriptionOf225DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:225.0 magnitude:1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (-0.707107, -0.707107) = (angle=225°, mag=1)>", @"Got a weird description for a 225-degree unit vector");
+}
+- (void) testDescriptionOf315DegreeUnitVector {
+	PRHVector *vector = [PRHVector vectorWithAngleInDegrees:315.0 magnitude:1.0];
+	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0.707107, -0.707107) = (angle=315°, mag=1)>", @"Got a weird description for a 315-degree unit vector");
 }
 
 @end

@@ -58,4 +58,14 @@
 - (void) testAxisOfStraightUpUnitVector;
 - (void) testAxisOfStraightDownUnitVector;
 
+- (void) testDescriptionOfZeroVector;
+- (void) testDescriptionOfStraightRightUnitVector;
+- (void) testDescriptionOfStraightLeftUnitVector;
+- (void) testDescriptionOfStraightUpUnitVector;
+- (void) testDescriptionOfStraightDownUnitVector;
+- (void) testDescriptionOf45DegreeUnitVector;
+- (void) testDescriptionOf135DegreeUnitVector;
+- (void) testDescriptionOf225DegreeUnitVector;
+- (void) testDescriptionOf315DegreeUnitVector;
+
 @end
