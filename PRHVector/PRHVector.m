@@ -59,7 +59,7 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 	enum {
 		DEGREE_SIGN = 0x00B0,
 	};
-	return [NSString stringWithFormat:@"<%@ %p (%+g, %+g) = (angle=%g%C, mag=%g)>",
+	return [NSString stringWithFormat:@"<%@ %p (%+f, %+f) = (angle=%g%C, mag=%f)>",
 		NSStringFromClass(self.class), (PRHVectorConstantSelfPointer != NULL) ? (void *)PRHVectorConstantSelfPointer : (__bridge void *)self,
 		self.x, self.y,
 		self.angleInDegrees, (unichar)DEGREE_SIGN,
