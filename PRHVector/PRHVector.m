@@ -57,7 +57,6 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 
 - (NSString *) description {
 	enum {
-		THETA = 0x03B8,
 		DEGREE_SIGN = 0x00B0,
 	};
 	return [NSString stringWithFormat:@"<%@ %p (%+g, %+g) = (angle=%g%C, mag=%g)>",
