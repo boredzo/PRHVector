@@ -1,6 +1,9 @@
 # PRHVector
 ## A featureful vector class for Objective-C
 
+[![Image: Status of most recent build and test attempt.](https://travis-ci.org/boredzo/PRHVector.png?branch=master)](https://travis-ci.org/boredzo/PRHVector)
+[![Image: Test code coverage percentage.](https://coveralls.io/repos/boredzo/PRHVector/badge.png?branch=master)](https://coveralls.io/r/boredzo/PRHVector?branch=master)
+
 This is reusable source code for a class of object representing a vector, in the mathematical (trigonometry/linear algebra) sense.
 
 ### Features
