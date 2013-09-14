@@ -1,0 +1,9 @@
+language: objective-c
+before_install:
+    - sudo easy_install cpp-coveralls
+
+script:
+    - xcodebuild clean build -configuration Debug SRCROOT=build OBJROOT=build SHARED_PRECOMPS_DIR=build TEST_AFTER_BUILD=YES
+
+after_success:
+    - coveralls -x '.m'
