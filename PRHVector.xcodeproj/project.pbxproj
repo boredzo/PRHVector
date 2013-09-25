@@ -12,6 +12,7 @@
 		31167159175094470036A254 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31167157175094470036A254 /* InfoPlist.strings */; };
 		3116715C175094470036A254 /* PRHVectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3116715B175094470036A254 /* PRHVectorTests.m */; };
 		31167164175094C30036A254 /* PRHVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 31167163175094C30036A254 /* PRHVector.m */; };
+		31A3E87C17F2E9F600187F51 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A3E87B17F2E9F600187F51 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3116715D175094470036A254 /* PRHVectorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PRHVectorTests-Prefix.pch"; sourceTree = "<group>"; };
 		31167162175094C30036A254 /* PRHVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHVector.h; sourceTree = "<group>"; };
 		31167163175094C30036A254 /* PRHVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHVector.m; sourceTree = "<group>"; };
+		31A3E87B17F2E9F600187F51 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			files = (
 				3116714D175094470036A254 /* SenTestingKit.framework in Frameworks */,
 				3116714F175094470036A254 /* Cocoa.framework in Frameworks */,
+				31A3E87C17F2E9F600187F51 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +71,7 @@
 				311671381750942D0036A254 /* Foundation.framework */,
 				3116714C175094470036A254 /* SenTestingKit.framework */,
 				3116714E175094470036A254 /* Cocoa.framework */,
+				31A3E87B17F2E9F600187F51 /* Carbon.framework */,
 				31167150175094470036A254 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -318,6 +322,7 @@
 				31167160175094470036A254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

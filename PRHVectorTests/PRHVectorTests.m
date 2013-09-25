@@ -277,4 +277,16 @@ const void *PRHVectorConstantSelfPointer = (const void *)0x12345abcde;
 	STAssertEqualObjects([vector description], @"<PRHVector 0x12345abcde (+0.707107, -0.707107) = (angle=315°, mag=1.000000)>", @"Got a weird description for a 315-degree unit vector");
 }
 
+- (void) testCreationFromPointMaintainsPoint {
+	NSPoint point = { 345.0, -123.4 };
+	PRHVector *vector = [PRHVector vectorWithPoint:point];
+	STAssertEquals(vector.point, point, @"Expected vector %@ created from point %@ to represent itself as same point, not %@", vector, NSStringFromPoint(point), NSStringFromPoint(vector.point));
+}
+
+- (void) testCreationFromSizeMaintainsSize {
+	NSSize size = { 345.0, -123.4 };
+	PRHVector *vector = [PRHVector vectorWithSize:size];
+	STAssertEquals(vector.size, size, @"Expected vector %@ created from size %@ to represent itself as same size, not %@", vector, NSStringFromSize(size), NSStringFromSize(vector.size));
+}
+
 @end

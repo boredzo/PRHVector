@@ -68,4 +68,7 @@
 - (void) testDescriptionOf225DegreeUnitVector;
 - (void) testDescriptionOf315DegreeUnitVector;
 
+- (void) testCreationFromPointMaintainsPoint;
+- (void) testCreationFromSizeMaintainsSize;
+
 @end

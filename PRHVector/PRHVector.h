@@ -22,6 +22,12 @@ typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
 + (instancetype) vectorWithX:(CGFloat)x y:(CGFloat)y;
 - (instancetype) initWithX:(CGFloat)x y:(CGFloat)y;
 
++ (instancetype) vectorWithPoint:(NSPoint)point;
+- (instancetype) initWithPoint:(NSPoint)point;
+
++ (instancetype) vectorWithSize:(NSSize)size;
+- (instancetype) initWithSize:(NSSize)size;
+
 + (instancetype) vectorWithAngleInRadians:(CGFloat)theta magnitude:(CGFloat)mag;
 - (instancetype) initWithAngleInRadians:(CGFloat)theta magnitude:(CGFloat)mag;
 
@@ -32,6 +38,8 @@ typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
 //Returns a vector of the locationInWindow of absolute-location mouse events (such as mouseDown and mouseUp), or the deltaX and deltaY of relative mouse events (such as scrollWheel). All gestures are treated as absolute.
 + (instancetype) vectorWithEvent:(NSEvent *)event;
 + (bool) eventWillBeInterpretedAsRelative:(NSEvent *)event;
+
++ (bool) isStartOfDragFromMouseDownEvent:(NSEvent *)mouseDownEvent toMouseDraggedEvent:(NSEvent *)mouseDraggedEvent;
 #endif
 
 @property CGFloat x, y;
@@ -52,4 +60,5 @@ typedef NS_ENUM(NSUInteger, PRHVectorAxis) {
 //Use this for, e.g., examining drags.
 - (PRHVectorAxis) axis;
 
+- (instancetype) vectorForMovementFromOriginVector:(PRHVector *)originVector;
 @end

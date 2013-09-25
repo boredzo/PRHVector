@@ -9,6 +9,7 @@
 #import "PRHVector.h"
 
 #include <tgmath.h>
+#include <Carbon/Carbon.h>
 
 @interface PRHVector ()
 
@@ -35,6 +36,20 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 		_y = y;
 	}
 	return self;
+}
+
++ (instancetype) vectorWithPoint:(NSPoint)point {
+	return [[self alloc] initWithPoint:point];
+}
+- (instancetype) initWithPoint:(NSPoint)point {
+	return [self initWithX:point.x y:point.y];
+}
+
++ (instancetype) vectorWithSize:(NSSize)size {
+	return [[self alloc] initWithSize:size];
+}
+- (instancetype) initWithSize:(NSSize)size {
+	return [self initWithX:size.width y:size.height];
 }
 
 + (instancetype) vectorWithAngleInRadians:(CGFloat)theta magnitude:(CGFloat)mag {
@@ -96,6 +111,33 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 			break;
 	}
 	return false;
+}
+
++ (bool) isStartOfDragFromMouseDownEvent:(NSEvent *)mouseDownEvent toMouseDraggedEvent:(NSEvent *)mouseDraggedEvent {
+	EventTime dragInitiationTimeLimit = 0;
+	HISize dragInitiationMinimumDistance = CGSizeZero;
+	OSStatus err = HIMouseTrackingGetParameters(kMouseParamsDragInitiation, &dragInitiationTimeLimit, &dragInitiationMinimumDistance);
+	if (err != noErr) {
+		//Values as of 10.8.4.
+		dragInitiationTimeLimit = 0.0;
+		dragInitiationMinimumDistance = (HISize){ 4.0, 4.0 };
+	}
+
+	if (dragInitiationTimeLimit > 0.0) {
+		NSTimeInterval timeMouseHasBeenDown = mouseDraggedEvent.timestamp - mouseDownEvent.timestamp;
+		if (timeMouseHasBeenDown > dragInitiationTimeLimit) {
+			return false;
+		}
+	}
+
+	PRHVector *mouseDownLocationVector = [PRHVector vectorWithPoint:mouseDownEvent.locationInWindow];
+	PRHVector *mouseDraggedLocationVector = [PRHVector vectorWithPoint:mouseDraggedEvent.locationInWindow];
+	PRHVector *dragVector = [mouseDraggedLocationVector vectorForMovementFromOriginVector:mouseDownLocationVector];
+	PRHVector *minimumDistanceVector = [PRHVector vectorWithSize:dragInitiationMinimumDistance];
+	if (dragVector.magnitude < minimumDistanceVector.magnitude)
+		return false;
+
+	return true;
 }
 #endif
 
@@ -209,6 +251,11 @@ const void *PRHVectorConstantSelfPointer __attribute__((weak));
 		: fabs(self.slope) > 1.0
 			? PRHVectorAxisY
 			: PRHVectorAxisX;
+}
+
+- (instancetype) vectorForMovementFromOriginVector:(PRHVector *)originVector {
+	return [[self class] vectorWithX:self.x - originVector.x
+		                           y:self.y - originVector.y];
 }
 
 @end
